@@ -34,4 +34,11 @@ public class RestController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @GetMapping("create")
+    public ResponseEntity<Boolean> create(boolean throwException) throws InterruptedException {
+        Boolean response = externalService.callErrorService(throwException);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
